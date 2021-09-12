@@ -5,6 +5,8 @@ An experimental Fang Song style Chinese font generated with [skeleton-tracing](h
 
 ![](screenshots/002.png)
 
+![](screenshots/008.png)
+
 The font contains roughly 13,000 glyphs, mostly for traditional Chinese.
 
 I created the font for one of my own projects. The font is admittedly not perfect, but nevertheless have many ineteresting features; therefore I am sharing the font file and programs used to generate it.
@@ -33,6 +35,8 @@ The height of a glyph is additionally tweaked based on its vertical complexity, 
 
 Many fonts are optimized for horizontal typesetting, and as such, when arranged vertically, the center of mass shifts left and right, giving a jagged look. This font attempts to solve the problem by computing centroids (via image moments) and aligning them.
 
+![](screenshots/009.png)
+
 The font has rich textures. Some of them are artifacts produced by pix2pix network; others are fine-tuned noises delibrately added.
 
 ![](screenshots/005.png)
@@ -41,7 +45,7 @@ It is to be noted that, as an automated process, it doesn't always produce optim
 
 ## Process
 
-The medial axis (skeleton) is computed for each raster rendering of the glyphs in the original font. (The resultant hershey font can be found at ./CWFS64J.HF.TXT)
+The medial axis (skeleton) is computed for each raster rendering of the glyphs in the original font. (The resultant hershey font can be found at ./dist/CWFS64J.HF.TXT)
 
 
 ![](screenshots/006.png)
@@ -57,10 +61,6 @@ All the new skeletons are fed into the trained network to obtain the new glyphs.
 
 Some post-processing is applied, and [potrace](http://potrace.sourceforge.net/) is used to re-vectorize the glyphs. Finally, [fontforge](https://fontforge.org/en-US/) is used to create a TTF file.
 
-
-Below is an example of how the font might be used to typeset an old-looking page:
-
-![](screenshots/008.png)
 
 
 ## Building the font
